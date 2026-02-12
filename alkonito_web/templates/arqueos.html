@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Historial Arqueos - ALKONITO</title>
+  <style>
+    body{
+      font-family: Arial, sans-serif;
+      background: #f3f4f6;
+      margin: 0;
+      padding: 0;
+    }
+    .header{
+      background: #111827;
+      color: white;
+      padding: 18px;
+      text-align: center;
+    }
+    .contenedor{
+      max-width: 900px;
+      margin: 30px auto;
+      background: white;
+      padding: 25px;
+      border-radius: 14px;
+      box-shadow: 0px 6px 18px rgba(0,0,0,0.12);
+    }
+    table{
+      width: 100%;
+      border-collapse: collapse;
+    }
+    th, td{
+      padding: 12px;
+      border-bottom: 1px solid #ddd;
+      text-align: center;
+    }
+    th{
+      background: #f9fafb;
+    }
+    .volver{
+      display: inline-block;
+      margin-bottom: 15px;
+      text-decoration: none;
+      font-weight: bold;
+      color: #2563eb;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="header">
+    <h2>Historial de Arqueos</h2>
+  </div>
+
+  <div class="contenedor">
+    <a class="volver" href="/menu">⬅ Volver al menú</a>
+
+    <table>
+      <tr>
+        <th>ID</th>
+        <th>Fecha</th>
+        <th>Ingresos</th>
+        <th>Retiros</th>
+        <th>Saldo</th>
+      </tr>
+
+      {% for a in arqueos %}
+      <tr>
+        <td>{{ a["id"] }}</td>
+        <td>{{ a["fecha"] }}</td>
+        <td>${{ a["total_ingresos"] }}</td>
+        <td>${{ a["total_retiros"] }}</td>
+        <td><b>${{ a["saldo"] }}</b></td>
+      </tr>
+      {% endfor %}
+    </table>
+  </div>
+
+</body>
+</html>

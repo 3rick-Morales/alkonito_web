@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Arqueo - ALKONITO</title>
+  <style>
+    body{
+      font-family: Arial, sans-serif;
+      background: #f3f4f6;
+      margin: 0;
+      padding: 0;
+    }
+    .header{
+      background: #111827;
+      color: white;
+      padding: 18px;
+      text-align: center;
+    }
+    .contenedor{
+      max-width: 500px;
+      margin: 30px auto;
+      background: white;
+      padding: 25px;
+      border-radius: 14px;
+      box-shadow: 0px 6px 18px rgba(0,0,0,0.12);
+    }
+    .volver{
+      display: inline-block;
+      margin-bottom: 15px;
+      text-decoration: none;
+      font-weight: bold;
+      color: #2563eb;
+    }
+    .dato{
+      font-size: 16px;
+      margin: 10px 0;
+    }
+    .saldo{
+      font-size: 18px;
+      font-weight: bold;
+    }
+    button{
+      width: 100%;
+      padding: 12px;
+      border: none;
+      background: #2563eb;
+      color: white;
+      font-size: 16px;
+      border-radius: 8px;
+      cursor: pointer;
+      margin-top: 15px;
+    }
+    button:hover{
+      background: #1d4ed8;
+    }
+    .ok{
+      margin-top: 15px;
+      font-weight: bold;
+      color: green;
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="header">
+    <h2>Arqueo de Caja</h2>
+    <p>{{ fecha }}</p>
+  </div>
+
+  <div class="contenedor">
+    <a class="volver" href="/menu">⬅ Volver al menú</a>
+
+    <div class="dato"><b>Total Ingresos:</b> ${{ ingresos }}</div>
+    <div class="dato"><b>Total Retiros:</b> ${{ retiros }}</div>
+    <div class="dato saldo"><b>Saldo en Caja:</b> ${{ saldo }}</div>
+
+    {% if ya_guardado %}
+      <div class="ok">✅ Arqueo ya guardado para hoy.</div>
+    {% else %}
+      <form method="POST" action="/guardar_arqueo">
+        <button type="submit">Guardar Arqueo del Día</button>
+      </form>
+    {% endif %}
+  </div>
+
+</body>
+</html>

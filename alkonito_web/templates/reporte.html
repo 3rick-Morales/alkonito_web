@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Reporte Diario - ALKONITO</title>
+  <style>
+    body{
+      font-family: Arial, sans-serif;
+      background: #f3f4f6;
+      margin: 0;
+      padding: 0;
+    }
+    .header{
+      background: #111827;
+      color: white;
+      padding: 18px;
+      text-align: center;
+    }
+    .contenedor{
+      max-width: 950px;
+      margin: 30px auto;
+      background: white;
+      padding: 25px;
+      border-radius: 14px;
+      box-shadow: 0px 6px 18px rgba(0,0,0,0.12);
+    }
+    .volver{
+      display: inline-block;
+      margin-bottom: 15px;
+      text-decoration: none;
+      font-weight: bold;
+      color: #2563eb;
+    }
+    .resumen{
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 12px;
+      margin-bottom: 20px;
+    }
+    .box{
+      background: #f9fafb;
+      padding: 15px;
+      border-radius: 12px;
+      text-align: center;
+      border: 1px solid #ddd;
+    }
+    table{
+      width: 100%;
+      border-collapse: collapse;
+    }
+    th, td{
+      padding: 12px;
+      border-bottom: 1px solid #ddd;
+      text-align: center;
+    }
+    th{
+      background: #f9fafb;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="header">
+    <h2>Reporte Diario</h2>
+    <p>{{ fecha }}</p>
+  </div>
+
+  <div class="contenedor">
+    <a class="volver" href="/menu">⬅ Volver al menú</a>
+
+    <div class="resumen">
+      <div class="box">
+        <b>Total Ingresos</b><br>
+        ${{ ingresos }}
+      </div>
+
+      <div class="box">
+        <b>Total Retiros</b><br>
+        ${{ retiros }}
+      </div>
+
+      <div class="box">
+        <b>Saldo Final</b><br>
+        <b>${{ saldo }}</b>
+      </div>
+    </div>
+
+    <h3>Detalle de transacciones</h3>
+
+    <table>
+      <tr>
+        <th>ID</th>
+        <th>Tipo</th>
+        <th>Monto</th>
+        <th>Descripción</th>
+        <th>Fecha</th>
+      </tr>
+
+      {% for t in transacciones %}
+      <tr>
+        <td>{{ t["id"] }}</td>
+        <td>{{ t["tipo"] }}</td>
+        <td>${{ t["monto"] }}</td>
+        <td>{{ t["descripcion"] }}</td>
+        <td>{{ t["fecha"] }}</td>
+      </tr>
+      {% endfor %}
+    </table>
+
+    <br>
+    <a href="/reporte_excel">
+        <button>📥 Descargar Reporte en Excel</button>
+    </a>
+    <br><br>
+  </div>
+
+</body>
+</html>

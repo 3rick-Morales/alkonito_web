@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Menú - ALKONITO</title>
+  <style>
+    body{
+      font-family: Arial, sans-serif;
+      background: #f3f4f6;
+      margin: 0;
+      padding: 0;
+    }
+    .header{
+      background: #111827;
+      color: white;
+      padding: 18px;
+      text-align: center;
+    }
+    .contenedor{
+      max-width: 900px;
+      margin: 30px auto;
+      padding: 10px;
+    }
+    .grid{
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 15px;
+    }
+    .card{
+      background: white;
+      padding: 20px;
+      border-radius: 14px;
+      box-shadow: 0px 6px 18px rgba(0,0,0,0.12);
+      text-decoration: none;
+      color: #111;
+      transition: 0.2s;
+    }
+    .card:hover{
+      transform: scale(1.02);
+    }
+    .titulo{
+      font-size: 18px;
+      font-weight: bold;
+      margin-bottom: 6px;
+    }
+    .desc{
+      font-size: 14px;
+      color: #555;
+    }
+    .logout{
+      margin-top: 20px;
+      text-align: center;
+    }
+    .logout a{
+      text-decoration: none;
+      font-weight: bold;
+      color: #dc2626;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="header">
+    <h2>ALKONITO - Menú Principal</h2>
+    <p>Corresponsal no bancario | Gestión de caja</p>
+  </div>
+
+  <div class="contenedor">
+    <div class="grid">
+      <a class="card" href="/transaccion">
+        <div class="titulo">💳 Registrar Transacción</div>
+        <div class="desc">Ingreso o retiro con descripción.</div>
+      </a>
+
+      <a class="card" href="/arqueo">
+        <div class="titulo">📦 Arqueo de Caja</div>
+        <div class="desc">Calcular y guardar arqueo del día.</div>
+      </a>
+
+      <a class="card" href="/arqueos">
+        <div class="titulo">📚 Historial Arqueos</div>
+        <div class="desc">Ver arqueos guardados en base de datos.</div>
+      </a>
+
+      <a class="card" href="/reporte">
+        <div class="titulo">📊 Reporte Diario</div>
+        <div class="desc">Resumen y detalle de transacciones.</div>
+      </a>
+    </div>
+
+    <div class="logout">
+      <br>
+      <a href="/logout">🚪 Cerrar sesión</a>
+    </div>
+  </div>
+
+</body>
+</html>
